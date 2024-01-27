@@ -39,6 +39,7 @@ ON a.ParcelID = b.ParcelID AND a.[UniqueID ] <> b.[UniqueID ]
 WHERE a.PropertyAddress is null
 
 --breaking out address into individual column(address,city,state)
+	
 Select PropertyAddress
 FROM NashvilleHousing
 
@@ -112,6 +113,7 @@ SET SoldAsVacant = CASE WHEN SoldAsVacant = 'Y' THEN 'Yes'
 	  END
 
 --remove duplicates
+	
 WITH RowNumCTE AS
 (SELECT *
 ,ROW_NUMBER() OVER (
@@ -125,6 +127,7 @@ WHERE row_num > 1
 --then inplace of select* write delete 
 
 --Delete unused columns
+	
 SELECT *
 FROM NashvilleHousing
 
